@@ -1,5 +1,0 @@
-E:/code/dgp/paulbourke/build/CMakeFiles/paulslib.dir
-E:/code/dgp/paulbourke/build/CMakeFiles/bitmaplib.dir
-E:/code/dgp/paulbourke/build/CMakeFiles/makewiffle.dir
-E:/code/dgp/paulbourke/build/CMakeFiles/ALL_BUILD.dir
-E:/code/dgp/paulbourke/build/CMakeFiles/ZERO_CHECK.dir
