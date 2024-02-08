@@ -1,0 +1,8 @@
+﻿  makewiffle.c
+E:\code\dgp\paulbourke\makewiffle.c(105,28): warning C4244: “=”: 从“double”转换到“unsigned char”，可能丢失数据
+E:\code\dgp\paulbourke\makewiffle.c(106,28): warning C4244: “=”: 从“double”转换到“unsigned char”，可能丢失数据
+E:\code\dgp\paulbourke\makewiffle.c(107,28): warning C4244: “=”: 从“double”转换到“unsigned char”，可能丢失数据
+E:\code\dgp\paulbourke\makewiffle.c(76,11): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+E:\code\dgp\paulbourke\makewiffle.c(113,7): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+E:\code\dgp\paulbourke\makewiffle.c(114,14): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  makewiffle.vcxproj -> E:\code\dgp\paulbourke\build\Debug\makewiffle.exe
