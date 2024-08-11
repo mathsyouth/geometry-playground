@@ -1,3 +1,3 @@
-# digital_geometry
+# geometry-playground
 
 Tiny geometric programs from various sources
