@@ -47,8 +47,13 @@ struct vec3f
 	inline vec3f operator + ( const vec3f& a ) const
 	{ return vec3f( x + a.x, y + a.y, z + a.z ); }
 
-	inline vec3f operator += ( const vec3f& a ) const
-	{ return vec3f( x + a.x, y + a.y, z + a.z ); }
+	inline vec3f& operator += (const vec3f& a) 
+	{
+	    x += a.x;
+	    y += a.y;
+	    z += a.z;
+	    return *this;
+	}
 
 	inline vec3f operator * ( const double a ) const
 	{ return vec3f( x * a, y * a, z * a ); }
@@ -350,6 +355,7 @@ namespace Simplify
 		//loop(iteration,0,100)
 		for (int iteration = 0; iteration < 100; iteration ++)
 		{
+			// target number of triangles reached ? Then break
 			if(triangle_count-deleted_triangles<=target_count)break;
 
 			// update mesh once in a while
@@ -369,7 +375,6 @@ namespace Simplify
 			//
 			double threshold = 0.000000001*pow(double(iteration+3),agressiveness);
 
-			// target number of triangles reached ? Then break
 			if ((verbose) && (iteration%5==0)) {
 				printf("iteration %d - triangles %d threshold %g\n",iteration,triangle_count-deleted_triangles, threshold);
 			}
@@ -382,7 +387,7 @@ namespace Simplify
 				if(t.deleted) continue;
 				if(t.dirty) continue;
 
-				loopj(0,3)if(t.err[j]<threshold)
+				loopj(0,3)if(t.err[j] <= threshold)
 				{
 
 					int i0=t.v[ j     ]; Vertex &v0 = vertices[i0];
@@ -675,20 +680,20 @@ namespace Simplify
 				vids.clear();
 				loopj(0,v.tcount)
 				{
-					int k=refs[v.tstart+j].tid;
-					Triangle &t=triangles[k];
+					int tid =refs[v.tstart+j].tid;
+					Triangle &t=triangles[tid];
 					loopk(0,3)
 					{
-						int ofs=0,id=t.v[k];
+						int ofs=0, vid=t.v[k];
 						while(ofs<vcount.size())
 						{
-							if(vids[ofs]==id)break;
+							if(vids[ofs]==vid)break;
 							ofs++;
 						}
 						if(ofs==vcount.size())
 						{
 							vcount.push_back(1);
-							vids.push_back(id);
+							vids.push_back(vid);
 						}
 						else
 							vcount[ofs]++;
@@ -723,7 +728,6 @@ namespace Simplify
 	}
 
 	// Finally compact mesh before exiting
-
 	void compact_mesh()
 	{
 		int dst=0;
